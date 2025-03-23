@@ -1,0 +1,5 @@
+[debian]
+localhost name="test"
+
+[debian:vars]
+ansible_user=debianuser #A remplacer par votre utilisateur

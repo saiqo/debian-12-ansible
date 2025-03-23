@@ -1,0 +1,25 @@
+---
+# Activer les unattended-upgrades
+- name: echo "unattended-upgrades unattended-upgrades/enable_auto_updates boolean true" | sudo debconf-set-selections  - auto install security updates
+  debconf: 
+    name: unattended-upgrades 
+    question: unattended-upgrades/enable_auto_updates 
+    vtype: boolean 
+    value: 'true'
+
+- name: apt install unattended-upgrades
+  apt: 
+    name: unattended-upgrades
+     
+- name: dpkg-reconfigure -f noninteractive unattended-upgrades
+  command:
+    cmd: dpkg-reconfigure -f noninteractive unattended-upgrades
+    creates: /etc/apt/apt.conf.d/20auto-upgrades
+
+- name: Désactiver le service ssh
+  ansible.builtin.firewalld:
+    service: "ssh"
+    state: disabled
+    permanent: yes
+    immediate: yes
+    zone: public

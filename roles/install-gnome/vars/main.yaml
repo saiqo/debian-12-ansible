@@ -1,0 +1,5 @@
+---
+gnome_apps:
+  - gnome-tweaks
+  - gnome-shell-extensions
+  - gnome-shell-extension-manager

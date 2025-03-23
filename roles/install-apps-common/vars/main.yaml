@@ -1,0 +1,8 @@
+---
+common_apps:
+  - thunderbird
+  - filezilla
+  - vlc
+  - libreoffice
+  - nextcloud-desktop
+  - smbclient

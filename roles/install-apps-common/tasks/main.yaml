@@ -1,0 +1,6 @@
+---
+- name: Install common apps
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ common_apps }}"

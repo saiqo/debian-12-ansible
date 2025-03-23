@@ -1,0 +1,5 @@
+---
+netsys_apps:
+  - wireshark
+  - net-tools
+  - tcpdump

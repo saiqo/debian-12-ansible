@@ -1,0 +1,27 @@
+- name: Installation dash to dock
+  become: yes
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: Téléchargement Dash to Dock depuis extensions.gnome.org
+      shell: >
+        wget -O /tmp/dash-to-dock.zip https://extensions.gnome.org/extension-data/dash-to-dockmicxgx.gmail.com.v84.shell-extension.zip
+
+    - name: Création du dossier pour l'extension
+      file:
+        path: ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+        state: directory
+        mode: '0755'
+
+    - name: Unzip Dash to Dock
+      unarchive:
+        src: /tmp/dash-to-dock.zip
+        dest: ~/.local/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+        remote_src: yes
+
+    - name: Activation de Dash to Dock
+      command: gnome-extensions enable dash-to-dock@micxgx.gmail.com
+      ignore_errors: yes
+
+
+
+

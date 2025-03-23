@@ -1,0 +1,33 @@
+- name: Configuration de GNOME pour l'utilisateur actuel
+  become: yes
+  become_user: "{{ ansible_user }}"
+  block:
+    - name: Set color-scheme to prefer-dark
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/color-scheme"
+        value: "'prefer-dark'"
+
+    - name: Set GTK theme to Yaru-Purple-Dark
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/gtk-theme"
+        value: "'Yaru-purple-dark'"
+
+    - name: Ajouter les boutons Maximiser et Minimiser aux fenêtres GNOME
+      community.general.dconf:
+        key: "/org/gnome/desktop/wm/preferences/button-layout"
+        value: "'appmenu:minimize,maximize,close'"
+    
+    - name: Dash to dock disable overview on startup
+      community.general.dconf:
+        key: "/org/gnome/shell/extensions/dash-to-dock/disable-overview-on-startup"
+        value: "true"
+
+    - name: Dash to dock max height
+      community.general.dconf:
+        key: "/org/gnome/shell/extensions/dash-to-dock/height-fraction"
+        value: "'0.5'"
+
+    - name: Dash to dock max icon size
+      community.general.dconf:
+        key: "/org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size"
+        value: "40"

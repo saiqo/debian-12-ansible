@@ -1,0 +1,17 @@
+---
+- name: Install and configure software on Debian 12
+  hosts: debian
+  connection: local
+  become: yes
+  roles:
+    - check-system
+    - update-system
+    - install-cmd-tools
+    - config-system
+    - install-gnome
+    - install-gnome-extensions
+    - config-user-gnome
+    - install-apps-common
+    - install-apps-netsys
+    - install-custom-software/brave
+    - install-custom-software/vscode

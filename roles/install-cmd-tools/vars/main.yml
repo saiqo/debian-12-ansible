@@ -1,0 +1,11 @@
+---
+common_tools:
+  - curl
+  - vim
+  - vim-airline
+  - build-essential
+  - htop
+  - iotop
+  - xclip
+  - rsyslog
+  - firewalld

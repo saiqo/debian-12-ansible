@@ -1,0 +1,28 @@
+---
+- name: Install gnome-core
+  apt:
+    name: gnome-core
+    state: present
+
+- name: Enable Network manager for the primary interface
+  shell: sed -i 's/managed=false/managed=true/' /etc/NetworkManager/NetworkManager.conf
+
+- name: Install gnome utils
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ gnome_apps }}"
+
+- name: Install python3-psutil for ansible-galaxy
+  apt:
+    name: "python3-psutil"
+    state: present
+
+- name: Installer community.general via ansible-galaxy
+  command: ansible-galaxy collection install community.general
+
+- name: Ensure Yaru-Purple-Dark theme is installed
+  apt:
+    name: yaru-theme-gtk
+    state: present
+

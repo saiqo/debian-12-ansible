@@ -1,0 +1,6 @@
+---
+- name: Install Net and Sys apps
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ netsys_apps }}"
