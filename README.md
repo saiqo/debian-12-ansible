@@ -25,8 +25,9 @@ Lancement du playbook :
 ```
 sudo ansible-playbook -i inventory playbook.yml
 ```
+> [!WARNING] 
+> Le playbook doit être lancer avec l'utilisateur courant de la machine (pas root) mais avec les droits sudo.
 
-> /!\ Le playbook doit être lancer avec l'utilisateur courant de la machine (pas root) mais avec les droits sudo.
 
 Une fois le playbook terminé :
 ```
