@@ -17,8 +17,8 @@ Installation
 ---
 Clone du projet :
 ```
-git clone <projet>
-cd <projet>
+git clone https://github.com/saiqo/debian-12-ansible.git
+cd debian-12-ansible
 ```
 
 Lancement du playbook :
