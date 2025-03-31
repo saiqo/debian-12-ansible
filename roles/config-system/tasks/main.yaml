@@ -16,7 +16,7 @@
     cmd: dpkg-reconfigure -f noninteractive unattended-upgrades
     creates: /etc/apt/apt.conf.d/20auto-upgrades
 
-- name: Désactiver le service ssh
+- name: Supprimer le service ssh de firewalld
   ansible.builtin.firewalld:
     service: "ssh"
     state: disabled
